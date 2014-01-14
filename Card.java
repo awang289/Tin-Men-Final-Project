@@ -23,5 +23,54 @@ public class Card implements Comparable {
   public int compareTo(Card other) {
     return ((_suit * 13) + _number - (other.getSuit() * 13) - other.getNumber()); 
   }
-  public String toString()
+  public String toString(){
+    if (_suit == 0) {
+      if (_number < 9) 
+        return  (_number + 2) + "\u2665";
+      else if (_number == 9)
+        return "J" + "\u2665";
+      else if (_number == 10)
+        return "Q" + "\u2665";
+      else if (_number == 11)
+        return "K" + "\u2665";
+      else 
+        return "A" + "\u2665";
+    }
+    else if (_suit == 1) {
+      if (_number < 9) 
+        return  (_number + 2) + "\u2660";
+      else if (_number == 9)
+        return "J" + "\u2660";
+      else if (_number == 10)
+        return "Q" + "\u2660";
+      else if (_number == 11)
+        return "K" + "\u2660";
+      else
+        return "A" + "\u2660";
+    }
+    else if (_suit == 2) {
+      if (_number < 9) 
+        return  (_number + 2) + "\u2666";
+      else if (_number == 9)
+        return "J" + "\u2666";
+      else if (_number == 10)
+        return "Q" + "\u2666";
+      else if (_number == 11)
+        return "K" + "\u2666";
+      else 
+        return "A" + "\u2666";
+    }
+    else {
+      if (_number < 9) 
+        return  (_number + 2) + "\u2663";
+      else if (_number == 9)
+        return "J" + "\u2663";
+      else if (_number == 10)
+        return "Q" + "\u2663";
+      else if (_number == 11)
+        return "K" + "\u2663";
+      else 
+        return "A" + "\u2663";
+    }
+  }
 }
