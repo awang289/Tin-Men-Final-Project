@@ -2,12 +2,19 @@ public abstract class Player {
   protected String _name;
   protected ArrayList<Card> _hand;
   protected int _score;
+  protected String _trickSuit;
   protected int _roundScore;
   public Player(String name) { 
     _name = name;
     _score = 0;
     _roundScore = 0;
     _hand = new ArrayList<Card>();
+  }
+  public void setTrickSuit(String j){
+    _trickSuit = j
+  }
+  public void getTrick(){
+    return _trickSuit;
   }
   public int getScore() { return _score; }
   public String getName() { return _name; }
