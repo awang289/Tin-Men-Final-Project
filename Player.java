@@ -2,13 +2,15 @@ public abstract class Player {
   protected String _name;
   protected ArrayList<Card> _hand;
   protected int _score;
+  protected int _roundScore;
   public Player(String name) { 
     _name = name;
     _score = 0;
+    _roundScore = 0;
     _hand = new ArrayList<Card>();
   }
-  public int getScore() { return score; }
-  public String getName() { return name; }
+  public int getScore() { return _score; }
+  public String getName() { return _name; }
   public boolean add (Card c) {
     _hand.add(c);
     return true;
@@ -20,8 +22,13 @@ public abstract class Player {
     _hand.set(index, c);
     return c;
   }
+  public int getRound(){return _roundScore}
   public Card remove(int index) {
     return _hand.remove(index);
+  }
+  public void tally() {
+    _score += _roundScore;
+    _roundScore = 0;
   }
   public Card remove(Card c) {
     _hand.remove(c);
