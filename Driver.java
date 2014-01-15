@@ -3,12 +3,15 @@
 
 public class Driver{
 
-	private ArrayList<Card> _deck;
+	private static ArrayList<Card> _deck;
 
-	private ArrayList<Card> _table
+	private static ArrayList<Card> _table
 
-	private Player p1, p2, p3, p4
+	private static Player p1, p2, p3, p4
 	
+	private static String trickSuit;
+	
+	public static String getTrick() { return trickSuit; }
 	public static void newDeck(){
 
 		for (int x = 0; x < 4 ; x++){
