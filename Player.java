@@ -32,6 +32,7 @@ public abstract class Player {
     return out;
   }
   public String getHand() {
+    sort();
     String out = "";
     for (int x = 0; x < _hand.size(); x++) {
       out = out + _hand.get(x); + "  ";
@@ -46,6 +47,5 @@ public abstract class Player {
         }
       }
     }
-    
   }
 }
