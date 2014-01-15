@@ -5,11 +5,13 @@ public class Driver{
 
 	private ArrayList<Card> _deck;
 
-	private ArrayList<Card> _onTable
+	private ArrayList<Card> _table
 
-	public ArrayList<Card> newDeck(){
+	private Player p1, p2, p3, p4
+	
+	public static void newDeck(){
 
-		for (int x = 0; x < 3 ; x++){
+		for (int x = 0; x < 4 ; x++){
 
 			for (int h = 0; h < 13 ; h++){
 
@@ -23,24 +25,35 @@ public class Driver{
 
 	}
 
-	public void dealHand(Player j){
+	public static void dealHand(Player j){
 
-		while (int x = 0; x < 12 ; x++){
+		while (int x = 0; x < 13 ; x++){
 			int h = (int) (Math.random()*_deck.size());
 			j.add(_deck.remove(_deck.get(h)));
 		}
 
 	}
-
+	
+	public static void startRound() {
+		newDeck();
+		dealHand(p1);
+		dealHand(p2);
+		dealHand(p3);
+		dealHand(p4);
+	}
+	
+	public static boolean anyLosers() {	
+		return ( (p1.getScore() >= 100 ) || ( p2.getScore() >= 100 ) || 
+			(p3.getScore() >= 100 ) || ( p4.getScore() >= 100 ) ) ;
+	}
 	public static void main(String [] args){
 
-		boolean anyLosers = false;
 
 		//instantiate players based on user input
 
 
 
-		while ( anyLosers == false ){
+		while ( anyLosers() == false ){
 			//dealHand to all players
 			//playRound() -- with each play, add cards to onTable
 			//add all cards in onTable back to deck, remove from onTable
