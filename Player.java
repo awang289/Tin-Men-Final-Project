@@ -22,7 +22,7 @@ public abstract class Player {
     _hand.set(index, c);
     return c;
   }
-  public int getRound(){return _roundScore}
+  public int getRound() {return _roundScore; }
   public Card remove(int index) {
     return _hand.remove(index);
   }
@@ -54,5 +54,9 @@ public abstract class Player {
         }
       }
     }
+  }
+  public int addPoints( int n ){
+    _roundScore += n;
+    return _roundScore;
   }
 }
