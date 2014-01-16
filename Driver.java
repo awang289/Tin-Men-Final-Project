@@ -9,7 +9,11 @@ public class Driver{
 
 	private static Player p1, p2, p3, p4
 	
-	private static String trickSuit;
+	private ArrayList<Player> players;
+	
+	private static int trickSuit;
+	
+	private int first;
 	
 	public static String getTrick() { return trickSuit; }
 	public static void newDeck(){
@@ -49,8 +53,12 @@ public class Driver{
 		return ( (p1.getScore() >= 100 ) || ( p2.getScore() >= 100 ) || 
 			(p3.getScore() >= 100 ) || ( p4.getScore() >= 100 ) ) ;
 	}
+	public static void playTurn() {
+		if () 
+			
 	public static void main(String [] args){
-
+		String j;
+		j = Keyboard.readString()
 
 
 
