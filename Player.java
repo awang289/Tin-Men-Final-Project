@@ -66,4 +66,5 @@ public abstract class Player {
     _roundScore += n;
     return _roundScore;
   }
+  public abstract Card playCard();
 }
