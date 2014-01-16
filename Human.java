@@ -6,7 +6,7 @@ public class Human extends Player{
     //add isBroken, isLeading, _getSuitName
     if ( isLeading == true && isBroken == false) {retStr = "Illegal move. Hearts has not yet been broken, please lead a card or another suit.";}
     if (isLeading == false && _trickSuit != d._getSuit()){retStr = "Illegal move. Please play a " + d._getSuitName + ".";} //make getSuitName
-    if (inHand == false){retStr = "Illegal move. Please select a card in your hand.";}
+    if (inHand(d) == false){retStr = "Illegal move. Please select a card in your hand.";}
     
     return retStr;   
   }
@@ -19,4 +19,7 @@ public class Human extends Player{
     }
     return false;
   }
+  
+  //playCard() method
+  
 }
