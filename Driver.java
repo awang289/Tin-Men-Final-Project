@@ -1,5 +1,5 @@
 //super preliminary; can we have other methods in the driver?
-
+import cs1.Keyboard;
 
 public class Driver{
 
@@ -9,7 +9,7 @@ public class Driver{
 
 	private static Player p1, p2, p3, p4
 	
-	private ArrayList<Player> players;
+	private ArrayList<Player> players = new ArrayList<Player>();
 	
 	private static int trickSuit;
 	
@@ -58,10 +58,18 @@ public class Driver{
 			
 	public static void main(String [] args){
 		String j;
-		j = Keyboard.readString()
-
-
-
+		int leading;
+		System.out.print("What is your name? ");
+		j = Keyboard.readString();
+		p1 = new Human(j);
+		p2 = new Computer("West");
+		p3 = new Computer("North");
+		p4 = new Computer("East");
+		players.add(p1);
+		players.add(p2);
+		players.add(p3);
+		players.add(p4);
+		
 
 
 		while ( anyLosers() == false ){
@@ -69,6 +77,11 @@ public class Driver{
 			//playRound() -- with each play, add cards to onTable
 			//add all cards in onTable back to deck, remove from onTable
 			//reevaluate anyLosers
+			startRound();
+			//set first person
+			for (int x = 0; x < 12; x++) {
+				//cycles, tally points, set next leader
+			}
 		}
 
 	}
