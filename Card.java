@@ -6,6 +6,7 @@ public class Card implements Comparable {
   */
   private int _suit;
   private int _number;
+  private String _name;
   private int _value;
   public Card (int suit, int number) {
     _suit = suit;
@@ -16,10 +17,15 @@ public class Card implements Comparable {
       _value = 13;
     else 
       value = 0;
+    if (_suit = 0){_name = "Hearts";}
+    if else (_suit = 1){_name = "Spades";}
+    if else (_suit = 2){_name = "Diamonds";}
+    else {_name = "Clubs";}
   }
   public int getSuit() { return _suit; }
   public int getNumber() { return _number; }
   public int getValue() { return _value; }
+  public String getSuitName(){return _name;}
   public int compareTo(Card other) {
     return ((_suit * 13) + _number - (other.getSuit() * 13) - other.getNumber()); 
   }
