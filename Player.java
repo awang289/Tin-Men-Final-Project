@@ -3,12 +3,22 @@ public abstract class Player {
   protected ArrayList<Card> _hand;
   protected int _score;
   protected int _trickSuit;
+  protected boolean isLeading;
+  protected boolean isBroken;
   protected int _roundScore;
   public Player(String name) { 
     _name = name;
     _score = 0;
     _roundScore = 0;
     _hand = new ArrayList<Card>();
+    isLeading = false;
+    isBroken = false;
+  }
+  public void setBroken(boolean h){
+    isBroken = h;
+  }
+  public void setLeading(boolean g){
+    isLeading = g;
   }
   public void setTrickSuit(int j){
     _trickSuit = j
