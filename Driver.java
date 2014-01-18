@@ -6,18 +6,17 @@ public class Driver{
 	private static ArrayList<Card> _deck;
 
 	private static ArrayList<Card> _table
-
-	private static Player p1, p2, p3, p4
 	
-	private ArrayList<Player> players = new ArrayList<Player>();
+	private static int leading;
+	
+	private static ArrayList<Player> players = new ArrayList<Player>();
 	
 	private static int trickSuit;
 	
-	private int first;
 	
 	public static String getTrick() { return trickSuit; }
 	public static void newDeck(){
-
+		_deck = new ArrayList<Card>();
 		for (int x = 0; x < 4 ; x++){
 
 			for (int h = 0; h < 13 ; h++){
@@ -33,7 +32,7 @@ public class Driver{
 	}
 
 	public static void dealHand(Player j){
-
+		
 		while (int x = 0; x < 13 ; x++){
 			int h = (int) (Math.random()*_deck.size());
 			j.add(_deck.remove(_deck.get(h)));
@@ -43,28 +42,51 @@ public class Driver{
 	
 	public static void startRound() {
 		newDeck();
-		dealHand(p1);
-		dealHand(p2);
-		dealHand(p3);
-		dealHand(p4);
+		for (int x = 0; x < 4; x++) {
+			dealHand(players.get(x))
+			players.get(x).sort();
+		}
 	}
 	
 	public static boolean anyLosers() {	
 		return ( (p1.getScore() >= 100 ) || ( p2.getScore() >= 100 ) || 
 			(p3.getScore() >= 100 ) || ( p4.getScore() >= 100 ) ) ;
 	}
-	public static void playTurn() {
+	public static boolean checkStart( Player p ) {
+		Card C3 = new Card(3,1)
+		for (int x = 0; x < 13; x++) {
+			if (p.get(x).compareTo( C3) == 0)
+				return true;
+		}
+		return false;	
+		
+	}
+	public static void playTurn( Player m ) {
 		if () 
 			
 	public static void main(String [] args){
 		String j;
 		int leading;
+		int s;
 		System.out.print("What is your name? ");
 		j = Keyboard.readString();
-		p1 = new Human(j);
-		p2 = new Computer("West");
-		p3 = new Computer("North");
-		p4 = new Computer("East");
+		Player p1 = new Human(j);
+		Player p2 = new Computer("West");
+		Player p3 = new Computer("North");
+		Player p4 = new Computer("East");
+		System.out.print("1. Easy \n2. Medium \n3. Hard \nChoose your difficulty level: ");
+		s = Keyboard.readInt();
+		p2.setDifficulty(s);
+		p3.setDifficulty(s);
+		p4.setDifficulty(s);
+		if (checkStart(p1))
+			leading = 0;
+		else if (checkStart(p2))
+			leading = 1;
+		else if (checkStart(p3))
+			leading = 2;
+		else 
+			leading = 3
 		players.add(p1);
 		players.add(p2);
 		players.add(p3);
@@ -79,7 +101,12 @@ public class Driver{
 			//reevaluate anyLosers
 			startRound();
 			//set first person
-			for (int x = 0; x < 12; x++) {
+			for (int x = 0; x < 13; x++) {
+				playTurn(players.get( leading ));
+				playTurn(players.get( (leading + 1) % 4);
+				playTurn(players.get( (leading + 2) % 4);
+				playTurn(players.get( (leading + 3) % 4);
+				
 				//cycles, tally points, set next leader
 			}
 		}
