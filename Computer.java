@@ -20,17 +20,6 @@ public class Computer extends Player{
     isBroken = false;
   }
   
-  
-  public boolean checkSuit(){
-  	for (int x = 0; x < _hand.size(); x++){
-  		if (_hand.get(x).getSuit()==getTrick()){
-  			return true;
-  		}
-  	}
-  	
-  	return false;
-  }
-  
 	
   public Card playCard(){//do in morning
     ArrayList<Card> toUse = _hand;
