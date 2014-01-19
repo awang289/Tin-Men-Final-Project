@@ -5,6 +5,7 @@ public abstract class Player {
   protected ArrayList<Card> _hand;
   protected ArrayList<Card> _table; 
   protected int _score;
+  protected int _difficulty;
   protected int _trickSuit;
   protected boolean isLeading;
   protected boolean isBroken;
@@ -45,7 +46,9 @@ public abstract class Player {
   public void setBroken(boolean h){
     isBroken = h;
   }
-  public void setDifficulty(int s){}
+  public void setDifficulty(int s){
+    _difficulty = s;
+  }
   public void setLeading(boolean g){
     isLeading = g;
   }
