@@ -31,8 +31,8 @@ public abstract class Player {
     isBroken = false;
   }
   
-  public void setTable(ArrayList<Card> g){
-    _table = g;
+  public void addTable(Card g){
+    _table.add(g);
   }
   
   public void emptyTable(){
