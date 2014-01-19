@@ -21,7 +21,7 @@ public class Human extends Player{
     isBroken = false;
   }
   
-  public String isOkay(int h){
+  public String isOkay(int h, boolean anyOfSuit){
     
     if (h < 1 || h > _hand.size()){return "Illegal move. Please select a card in your hand.";}
     Card d = _hand.get(h-1);
@@ -29,7 +29,7 @@ public class Human extends Player{
     String retStr = "";
     
     if ( isLeading == true && isBroken == false && d.getSuit() == 0) {retStr = "Illegal move. Hearts has not yet been broken, please lead a card of another suit.";}
-    if (isLeading == false && _trickSuit != d.getSuit()){retStr = "Illegal move. Please play a " + d.getSuitName() + ".";} //make getSuitName
+    if (isLeading == false && _trickSuit != d.getSuit() && anyOfSuit == true){retStr = "Illegal move. You have a " + d.getSuitName() + ", so you must play it.";} //make getSuitName
     
     return retStr;
   }
@@ -53,9 +53,10 @@ public class Human extends Player{
     //include catchException in case doubles/floats/non-numbers are inputted
     System.out.println("It's your turn, please select a card using an integer from 1 to " + _hand.size()+ ".");
     int h = Keyboard.readInt();
+    boolean j = checkSuit();
     
-    while (isOkay(h)!= ""){
-      System.out.println(isOkay(h));
+    while (isOkay(h,j)!= ""){
+      System.out.println(isOkay(h,j));
       h = Keyboard.readInt();
     }
     
