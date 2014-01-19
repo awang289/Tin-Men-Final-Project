@@ -2,10 +2,10 @@ import cs1.Keyboard;
 
 public class Human extends Player{
   
-  public String isOkay(int d){
+  public String isOkay(int h){
     
-    if (d < 1 || d > _hand.size()){return "Illegal move. Please select a card in your hand.";}
-    Card d = _hand.get(d-1);
+    if (h < 1 || h > _hand.size()){return "Illegal move. Please select a card in your hand.";}
+    Card d = _hand.get(h-1);
     
     String retStr = "";
     
@@ -40,7 +40,7 @@ public class Human extends Player{
     }
     
     System.out.println(isOkay(h));
-    Card retCard = _hand.get(d-1);
+    Card retCard = _hand.get(h-1);
     return retCard
   }
   
