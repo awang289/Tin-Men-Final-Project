@@ -57,6 +57,7 @@ public abstract class Player {
   }
   public int getScore() { return _score; }
   public String getName() { return _name; }
+  public boolean getLeading() {return isLeading;}
   public ArrayList<Card> retHand(){return _hand;}
   public boolean add (Card c) {
     _hand.add(c);
