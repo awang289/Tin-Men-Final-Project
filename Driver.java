@@ -147,8 +147,20 @@ public class Driver{
         }
 
         public static Card playTurn( Player m ) {
-                return m.playCard();
-        }                
+                if (m.getLeading() == true){
+                        for (int x = 0; x < players.size(); x++){
+                                players.get(x).emptyTable();
+                        }     
+                }
+                
+                Card d = m.playCard();
+                for (int x = 0; x < players.size(); x++){
+                        players.get(x).addTable(d);
+                }
+                return d;
+                
+        }        
+        
         public static void main(String [] args){
                 int s;
                 Card c1, c2, c3, c4;
