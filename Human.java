@@ -48,6 +48,7 @@ public class Human extends Player{
   }
   
   public Card playCard(){
+    
     showHand();
     //include catchException in case doubles/floats/non-numbers are inputted
     System.out.println("It's your turn, please select a card using an integer from 1 to " + _hand.size()+ ".");
@@ -60,6 +61,7 @@ public class Human extends Player{
     
     System.out.println(isOkay(h));
     Card retCard = _hand.get(h-1);
+    System.out.println(_name + "played " + retCard.toString() + ".")
     return retCard;
   }
   
