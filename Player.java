@@ -3,17 +3,20 @@ import java.util.ArrayList;
 public abstract class Player {
   protected String _name;
   protected ArrayList<Card> _hand;
+  protected ArrayList<Card> _table; 
   protected int _score;
   protected int _trickSuit;
   protected boolean isLeading;
   protected boolean isBroken;
   protected int _roundScore;
+  
 
   public Player() {
     _name = "";
     _score = 0;
     _roundScore = 0;
     _hand = new ArrayList<Card>();
+    _table = new ArrayList<Card>();
     isLeading = false;
     isBroken = false;
   }
@@ -22,10 +25,23 @@ public abstract class Player {
     _name = name;
     _score = 0;
     _roundScore = 0;
+    _table = new ArrayList<Card>();
     _hand = new ArrayList<Card>();
     isLeading = false;
     isBroken = false;
   }
+  
+  public void setTable(ArrayList<Card> g){
+    _table = g;
+  }
+  
+  public void emptyTable(){
+    for (int x = 0; x < _table.size()  ; x++){
+      table.remove(x);
+      x--;
+    }
+  }
+  
   public void setBroken(boolean h){
     isBroken = h;
   }
