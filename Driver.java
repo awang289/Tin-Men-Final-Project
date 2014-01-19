@@ -1,4 +1,4 @@
-//super preliminary; can we have other methods in the driver?
+//All we need is methods to print the score and the winner at the end of the game and the driver is DONE!
 import cs1.Keyboard;
 
 public class Driver{
@@ -61,13 +61,48 @@ public class Driver{
 		return false;	
 		
 	}
-	public static void playTurn( Player m ) {
-		if () 
-			
+	public static void setLeading (int n) {
+		for (int x = 0; x < 4; x++)
+			players.get(x).setLeading(false);
+		players.get(n).setLeading(true);
+	}
+	public static void setTrick (Card c) {
+		for (int x = 0; x < 4; x++)
+			players.get(x).setTrickSuit(c.getSuit());
+		trickSuit = c.getSuit();
+	}
+	public static void tallyTrick(Card c1, Card c2, Card c3, Card c4) {
+		Card max = c1;
+		if (c2.getSuit == trickSuit && c2.compareTo(c1) > 0)
+			max = c2;
+		if (c3.getSuit == trickSuit && c3.compareTo(c1) > 0)
+			max = c3;
+		if (c4.getSuit == trickSuit && c4.compareTo(c1) > 0)
+			max = c4;
+		int total = c1.getValue() + c2.getValue() + c3.getValue() + c4.getValue();
+		if (max.equals(c1))
+			players.get(leading).addPoints(total);
+		else if (max.equals(c2))
+			players.get( (leading + 1) % 4).addPoints(total);
+			leading = (leading + 1) % 4;
+		else if (max.equals(c3))
+			players.get( (leading + 2) % 4).addPoints(total);
+			leading = (leading + 2) % 4;
+		else
+			players.get( (leading + 3) % 4).addPoints(total);
+		leading = (leading + 1) % 4;
+		if (total > 0) {
+			for (int x = 0; x < 4; x++) 
+				players.get(x).setBroken(true);
+		}
+	}
+	public static Card playTurn( Player m ) {
+		return m.playCard();
+	}		
 	public static void main(String [] args){
 		String j;
-		int leading;
 		int s;
+		Card c1, c2, c3, c4;
 		System.out.print("What is your name? ");
 		j = Keyboard.readString();
 		Player p1 = new Human(j);
@@ -86,7 +121,7 @@ public class Driver{
 		else if (checkStart(p3))
 			leading = 2;
 		else 
-			leading = 3
+			leading = 3;
 		players.add(p1);
 		players.add(p2);
 		players.add(p3);
@@ -102,14 +137,18 @@ public class Driver{
 			startRound();
 			//set first person
 			for (int x = 0; x < 13; x++) {
-				playTurn(players.get( leading ));
-				playTurn(players.get( (leading + 1) % 4);
-				playTurn(players.get( (leading + 2) % 4);
-				playTurn(players.get( (leading + 3) % 4);
-				
-				//cycles, tally points, set next leader
+				setLeading(leading);
+				c1 = playTurn(players.get( leading ));
+				setTrick(c1);
+				c2 = playTurn(players.get( (leading + 1) % 4);
+				c3 = playTurn(players.get( (leading + 2) % 4);
+				c4 = playTurn(players.get( (leading + 3) % 4);
+				tallyTrick(c1, c2, c3, c4);
+
 			}
+			printScore();
 		}
+		printWinner();
 
 	}
 
