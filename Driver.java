@@ -96,6 +96,20 @@ public class Driver{
 				players.get(x).setBroken(true);
 		}
 	}
+	public static void tallyRound();
+		if (players.get(0).getRound() == 26 || players.get(1).getRound() == 26 || 
+			players.get(2).getRound() == 26 || players.get(3).getRound() == 26) {
+			for (int x = 0; x < 4; x++) {
+				if (players.get(x).getRound() != 26)
+					players.get(x).addPoints(26);
+				else 
+					players.get(x).addPoints(-26);
+			}
+		}
+		players.get(0).tally();
+		players.get(1).tally();
+		players.get(2).tally();
+		players.get(3).tally();
 	public static Card playTurn( Player m ) {
 		return m.playCard();
 	}		
@@ -146,6 +160,7 @@ public class Driver{
 				tallyTrick(c1, c2, c3, c4);
 
 			}
+			tallyRound();
 			printScore();
 		}
 		printWinner();
