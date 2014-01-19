@@ -35,6 +35,7 @@ public class Computer extends Player{
     	}
     }
     //at this point we have an arraylist toUse of all legal cards
+    //we also have _table, which contains all cards currently in play
     
     
     return h; //h will be final outputted card
