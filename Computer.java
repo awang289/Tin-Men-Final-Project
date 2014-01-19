@@ -35,6 +35,8 @@ public class Computer extends Player{
     	}
     }
     //at this point we have an arraylist toUse of all legal cards
+    
+    
     return h; //h will be final outputted card
   	}
   
