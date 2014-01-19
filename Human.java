@@ -5,7 +5,7 @@ public class Human extends Player{
   public String isOkay(int d){
     
     if (d < 1 || d > _hand.size()){return "Illegal move. Please select a card in your hand.";}
-    Card d = _hand.get(d);
+    Card d = _hand.get(d-1);
     
     String retStr = "";
     
