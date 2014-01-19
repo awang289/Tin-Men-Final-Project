@@ -91,5 +91,15 @@ public abstract class Player {
     _roundScore += n;
     return _roundScore;
   }
+  
+  public boolean checkSuit(){
+  	for (int x = 0; x < _hand.size(); x++){
+  		if (_hand.get(x).getSuit()==getTrick()){
+  			return true;
+  		}
+  	}
+  	
+  	return false;
+  }
   public abstract Card playCard();
 }
