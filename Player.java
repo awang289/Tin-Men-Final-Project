@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public abstract class Player {
   protected String _name;
   protected ArrayList<Card> _hand;
@@ -6,7 +8,17 @@ public abstract class Player {
   protected boolean isLeading;
   protected boolean isBroken;
   protected int _roundScore;
-  public Player(String name) { 
+
+  public Player() {
+    _name = "";
+    _score = 0;
+    _roundScore = 0;
+    _hand = new ArrayList<Card>();
+    isLeading = false;
+    isBroken = false;
+  }
+
+  public Player(String name) {
     _name = name;
     _score = 0;
     _roundScore = 0;
@@ -17,17 +29,19 @@ public abstract class Player {
   public void setBroken(boolean h){
     isBroken = h;
   }
+  public void setDifficulty(int s){}
   public void setLeading(boolean g){
     isLeading = g;
   }
   public void setTrickSuit(int j){
-    _trickSuit = j
+    _trickSuit = j;
   }
   public int getTrick(){
     return _trickSuit;
   }
   public int getScore() { return _score; }
   public String getName() { return _name; }
+  public ArrayList<Card> retHand(){return _hand;}
   public boolean add (Card c) {
     _hand.add(c);
     return true;
@@ -40,6 +54,7 @@ public abstract class Player {
     return c;
   }
   public int getRound() {return _roundScore; }
+
   public Card remove(int index) {
     return _hand.remove(index);
   }
@@ -51,7 +66,7 @@ public abstract class Player {
     _hand.remove(c);
     return c;
   }
-  public String toString() { 
+  public String toString() {
     String out = "Name: " + _name + "\nScore: " + _score;
     return out;
   }
@@ -59,14 +74,14 @@ public abstract class Player {
     sort();
     String out = "";
     for (int x = 0; x < _hand.size(); x++) {
-      out = out + _hand.get(x); + "  ";
+      out = out + _hand.get(x) + " ";
     }
     return out;
   }
   public void sort() {
     for (int g = 0; g < _hand.size(); g++){
       for (int h = g+1; h < _hand.size(); h++){
-        if ((_hand.get(g).compareTo(hand.get(h))>0)){
+        if ((_hand.get(g).compareTo(_hand.get(h))>0)){
           _hand.set(g, _hand.set(h, _hand.get(g)));
         }
       }
