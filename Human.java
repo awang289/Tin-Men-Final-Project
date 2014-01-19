@@ -36,10 +36,11 @@ public class Human extends Player{
     
     while (isOkay(h)!= ""){
       System.out.println(isOkay(h));
-      retCard = findCard(Keyboard.getString());
+      int h = Keyboard.getInt();
     }
     
     System.out.println(isOkay(h));
+    Card retCard = _hand.get(d-1);
     return retCard
   }
   
