@@ -198,7 +198,8 @@ public class Driver{
                         //add all cards in onTable back to deck, remove from onTable
                         //reevaluate anyLosers
                         startRound();
-                        //set first person
+			System.out.println("" + players.get(leading).getName() 
+					   + " is leading this round.");
                         for (int x = 0; x < 13; x++) {
                                 c1 = playTurn( (Player) players.get( leading ));
                                 setTrick(c1);
