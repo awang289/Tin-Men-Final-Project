@@ -78,6 +78,14 @@ public class Driver{
                         dealHand(players.get(x));
                         players.get(x).sort();
                 }
+                if (checkStart(players.get(0)))
+		    setLeading (0);
+                else if (checkStart(players.get(1)))
+		    setLeading(1);
+                else if (checkStart(players.get(2)))
+		    setLeading(2);
+                else
+		    setLeading(3);
         }
         
         public static boolean anyLosers(Player p1, Player p2, Player p3, Player p4) {        
@@ -97,6 +105,7 @@ public class Driver{
                 for (int x = 0; x < 4; x++)
                         players.get(x).setLeading(false);
                 players.get(n).setLeading(true);
+		leading = n;
         }
         public static void setTrick (Card c) {
                 for (int x = 0; x < 4; x++)
@@ -115,15 +124,15 @@ public class Driver{
                 int total = c1.getValue() + c2.getValue() + c3.getValue() + c4.getValue();
                 if (max.equals(c1))
                         {players.get(leading).addPoints(total);}
-                else if (max.equals(c2))
-                        {players.get( (leading + 1) % 4).addPoints(total);
-                        leading = (leading + 1) % 4;}
-                else if (max.equals(c3))
-                        { players.get( (leading + 2) % 4).addPoints(total);
-                        leading = (leading + 2) % 4;}
-                else
-                        {players.get( (leading + 3) % 4).addPoints(total);}
-                leading = (leading + 1) % 4;
+                else if (max.equals(c2)) {
+                        players.get( (leading + 1) % 4).addPoints(total);
+                        setLeading((leading + 1) % 4);}
+                else if (max.equals(c3)) {
+                         players.get( (leading + 2) % 4).addPoints(total);
+			 setLeading((leading + 2) % 4);}
+                else {
+		    players.get( (leading + 3) % 4).addPoints(total);
+		    setLeading((leading + 1) % 4); }
                 if (total > 0) {
                         for (int x = 0; x < 4; x++)
                                 players.get(x).setBroken(true);
@@ -175,14 +184,7 @@ public class Driver{
                 p2.setDifficulty(s);
                 p3.setDifficulty(s);
                 p4.setDifficulty(s);
-                if (checkStart(p1))
-                        leading = 0;
-                else if (checkStart(p2))
-                        leading = 1;
-                else if (checkStart(p3))
-                        leading = 2;
-                else
-                        leading = 3;
+
                 players.add(p1);
                 players.add(p2);
                 players.add(p3);
@@ -198,12 +200,11 @@ public class Driver{
                         startRound();
                         //set first person
                         for (int x = 0; x < 13; x++) {
-                                setLeading(leading);
-                                c1 = playTurn(players.get( leading ));
+                                c1 = playTurn( (Player) players.get( leading ));
                                 setTrick(c1);
-                                c2 = playTurn(players.get( (leading + 1) % 4));
-                                c3 = playTurn(players.get( (leading + 2) % 4));
-                                c4 = playTurn(players.get( (leading + 3) % 4));
+                                c2 = playTurn((Player)players.get( (leading + 1) % 4));
+                                c3 = playTurn((Player)players.get( (leading + 2) % 4));
+                                c4 = playTurn((Player)players.get( (leading + 3) % 4));
                                 tallyTrick(c1, c2, c3, c4);
 
                         }
