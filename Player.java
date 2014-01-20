@@ -117,6 +117,7 @@ public abstract class Player {
     if (g == 12){return "Queen";}
     if (g == 13){return "King";}
     if (g == 14){return "Ace";}
+    return g;
   }
   
   public boolean checkSuit(){
