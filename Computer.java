@@ -25,14 +25,14 @@ public class Computer extends Player{
   public ArrayList<Card> reduce(){
       	ArrayList<Card> toUse = _hand;
     	boolean anyOfSuit = checkSuit(); 
-    	for (int x = 0; x < toUse.size(); x++){
+    	for (int x =  toUse.size(); x > 0; x--){
     		if (isLeading == true && isBroken == false && toUse.get(x).getSuit() == 0){
     			toUse.remove(x);
-    			x--;
+
     		}
     		if (toUse.get(x).getSuit()!= _trickSuit && anyOfSuit == true && isLeading == false){
     			toUse.remove(x);
-    			x--;
+
     		}
     	}
     	
@@ -206,7 +206,6 @@ public class Computer extends Player{
   }
   
 }
-
 
 
 
