@@ -1,11 +1,3 @@
-/*
-
-
-IMPORTANT NOTE: I'm checking this out now, but sometimes the last person to play a card always wins no matter what
-//not sure where the winner is determined but if this note is still up by the time you get back check it out
-
-
-*/ 
 import cs1.Keyboard;
 import java.util.ArrayList;
 
