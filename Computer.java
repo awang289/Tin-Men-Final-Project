@@ -56,18 +56,26 @@ public class Computer extends Player{
     // as well as _difficulty, which runs 1-3 and dictates increasing difficulty level
     
     if (_difficulty == 1){
-    	return easyPlay(n);
+    	Card f = easyPlay(n);
+    	_hand.remove(f);
+    	return f;
     }
     
     if (_difficulty == 2){
-    	return midPlay(n);
+    	Card e = midPlay(n);
+    	_hand.remove(e);
+    	return e;
     }
     
     if (_difficulty == 3){
-    	return hardPlay(n);
+    	Card t = hardPlay(n);
+    	_hand.remove(t);
+    	return t;
     }
     
-    return easyPlay(n);
+    Card y = easyPlay(n);
+    _hand.remove(y);
+    return y;
   }
   
   public boolean anyHearts(){
