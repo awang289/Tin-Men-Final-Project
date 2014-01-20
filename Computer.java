@@ -26,14 +26,18 @@ public class Computer extends Player{
       	ArrayList<Card> toUse = _hand;
     	boolean anyOfSuit = checkSuit(); 
     	for (int x =  toUse.size() - 1; x >= 0; x--){
-    		if (isLeading == true && isBroken == false && toUse.get(x).getSuit() == 0){
+	    if (isLeading == true){
+		if (isBroken == false && toUse.get(x).getSuit() == 0){
     			toUse.remove(x);
 
     		}
-    		if (toUse.get(x).getSuit()!= _trickSuit && anyOfSuit == true && isLeading == false){
-    			toUse.remove(x);
-
-    		}
+	    }
+	    else {
+		if (anyOfSuit == true && toUse.get(x).getSuit()!= _trickSuit){
+		    toUse.remove(x);
+		    
+		}
+	    }
     	}
     	
     	return toUse;
@@ -69,7 +73,7 @@ public class Computer extends Player{
     }
     
     _hand.remove(y); 
-    System.out.println(_name + "played the " + y.getNumber()+ " of " + y.getSuitName()  + "s.");
+    System.out.println("" + _name + " played " + y);
     return y;
   }
   
@@ -101,8 +105,8 @@ public class Computer extends Player{
   }
   
   public Card easyPlay(ArrayList<Card> n){
-      int x = (int) (Math.random() * n.size());
-      return n.get(x);
+	  int x = (int) (Math.random() * n.size());
+	  return n.get(x);
   }
   
   public Card midPlay(ArrayList<Card> n){
