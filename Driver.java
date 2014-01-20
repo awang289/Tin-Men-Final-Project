@@ -165,6 +165,7 @@ public class Driver{
 	for (int x = 0; x < players.size(); x++){
 	    players.get(x).addTable(d);
 	}
+	System.out.println("");
 	return d;
                 
     }        
