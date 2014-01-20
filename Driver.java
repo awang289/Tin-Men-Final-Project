@@ -18,11 +18,11 @@ public class Driver{
 
         public static void printScore(){
                 String printStr = "==================================";
-                printStr += "SCORES:";
+                printStr = printStr +  "SCORES:";
                 for (int x = 0; x < players.size(); x++){
-                        printStr += players.get(x);
+                        printStr = printStr + players.get(x);
                 }
-                printStr = "==================================";
+                printStr = print Str +  "==================================";
                 System.out.println(printStr);
         }
 
@@ -39,7 +39,7 @@ public class Driver{
                                 g += ", " + players.get(x).getName();
                         }
                 }
-                printStr = "==================================";
+                printStr += "==================================";
                 System.out.println(printStr);
         }
 
