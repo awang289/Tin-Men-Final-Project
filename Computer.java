@@ -9,6 +9,7 @@ public class Computer extends Player{
     _hand = new ArrayList<Card>();
     isLeading = false;
     isBroken = false;
+    _table = new ArrayList<Card>();
   }
 
   public Computer(String name) {
@@ -16,6 +17,7 @@ public class Computer extends Player{
     _score = 0;
     _roundScore = 0;
     _hand = new ArrayList<Card>();
+    _table = new ArrayList<Card>();
     isLeading = false;
     isBroken = false;
   }
@@ -23,7 +25,7 @@ public class Computer extends Player{
   public ArrayList<Card> reduce(){
       	ArrayList<Card> toUse = _hand;
     	boolean anyOfSuit = checkSuit(); 
-    	for (int x = 0; x < _toUse.size(); x++){
+    	for (int x = 0; x < toUse.size(); x++){
     		if (isLeading == true && isBroken == false && toUse.get(x).getSuit() == 0){
     			toUse.remove(x);
     			x--;
@@ -87,8 +89,8 @@ public class Computer extends Player{
   }
   
   public Card easyPlay(ArrayList<Card> n){
-  	int x = (int) (Math.random * n.size());
-  	return n.get(x);
+      int x = (int) (Math.random() * n.size());
+      return n.get(x);
   }
   
   public Card midPlay(ArrayList<Card> n){
@@ -113,9 +115,8 @@ public class Computer extends Player{
   		return n.get((int)(n.size()));
   	}
   	
-  	if (isLeading == true){
   		return n.get(0);
-  	}
+  	
   	
   	
   }
@@ -168,7 +169,7 @@ public class Computer extends Player{
   		}
   	}
   	
-  	if (_trickSuit == 0 && table.size() == 1){
+  	if (_trickSuit == 0 && _table.size() == 1){
   		for (int x = 0 ; x < n.size(); x++){
   			if (n.get(x).compareTo(_table.get(0)) < 0){
   				return n.get(x);
@@ -177,9 +178,9 @@ public class Computer extends Player{
   		
   	}
   	
-  	if (_trickSuit ==0 && table.size() == 2){
+  	if (_trickSuit ==0 && _table.size() == 2){
   		for (int x = 0; x < n.size(); x++){
-  			if (n.get(x).compareTo(_table.get(0))|| n.get(x).compareTo(_table.get(1))){
+  			if (n.get(x).compareTo(_table.get(0))< 0|| n.get(x).compareTo(_table.get(1))> 0){
   				return n.get(x);
   			}
   		}
@@ -189,9 +190,9 @@ public class Computer extends Player{
   		return n.get((int)n.size()/2);
   	}
   	
-  	if (anyHearts() == true){
+ 
   		return n.get(0);
-  	}
+  	
   
   }
   
