@@ -24,7 +24,7 @@ public class Human extends Player{
   public int convert(String w){
     for (int x = 0 ; x < _hand.size() ; x++){
       if (_hand.get(x).toString().equals(w)){
-        return x
+        return x;
       }
     }
     
