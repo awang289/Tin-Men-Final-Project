@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public abstract class Player {
   protected String _name;
   protected ArrayList<Card> _hand;
-  protected ArrayList<Card> _table; 
+  protected ArrayList<Card> _table;
   protected int _score;
   protected int _difficulty;
   protected int _trickSuit;
@@ -37,7 +37,7 @@ public abstract class Player {
   }
   
   public void emptyTable(){
-    for (int x = 0; x < _table.size()  ; x++){
+    for (int x = 0; x < _table.size() ; x++){
       _table.remove(x);
       x--;
     }
@@ -111,15 +111,22 @@ public abstract class Player {
     _roundScore += n;
     return _roundScore;
   }
+
+  public String cardConvert(int g){
+    if (g == 11){return "Jack";}
+    if (g == 12){return "Queen";}
+    if (g == 13){return "King";}
+    if (g == 14){return "Ace";}
+  }
   
   public boolean checkSuit(){
-  	for (int x = 0; x < _hand.size(); x++){
-  		if (_hand.get(x).getSuit()==getTrick()){
-  			return true;
-  		}
-  	}
-  	
-  	return false;
+          for (int x = 0; x < _hand.size(); x++){
+                  if (_hand.get(x).getSuit()==getTrick()){
+                          return true;
+                  }
+          }
+          
+          return false;
   }
   public abstract Card playCard();
 }
