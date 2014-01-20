@@ -48,51 +48,51 @@ Clubs is 3
   public String toString(){
     if (_suit == 0) {
       if (_number < 9)
-        return (_number + 2) + "\u2665";
+        return (_number + 2) + "H";
       else if (_number == 9)
-        return "J" + "\u2665";
+        return "J" + "H";
       else if (_number == 10)
-        return "Q" + "\u2665";
+        return "Q" + "H";
       else if (_number == 11)
-        return "K" + "\u2665";
+        return "K" + "H";
       else
-        return "A" + "\u2665";
+        return "A" + "H";
     }
     else if (_suit == 1) {
       if (_number < 9)
-        return (_number + 2) + "\u2660";
+        return (_number + 2) + "S";
       else if (_number == 9)
-        return "J" + "\u2660";
+        return "J" + "S";
       else if (_number == 10)
-        return "Q" + "\u2660";
+        return "Q" + "S";
       else if (_number == 11)
-        return "K" + "\u2660";
+        return "K" + "S";
       else
-        return "A" + "\u2660";
+        return "A" + "S";
     }
     else if (_suit == 2) {
       if (_number < 9)
-        return (_number + 2) + "\u2666";
+        return (_number + 2) + "D";
       else if (_number == 9)
-        return "J" + "\u2666";
+        return "J" + "D";
       else if (_number == 10)
-        return "Q" + "\u2666";
+        return "Q" + "D";
       else if (_number == 11)
-        return "K" + "\u2666";
+        return "K" + "D";
       else
-        return "A" + "\u2666";
+        return "A" + "D";
     }
     else {
       if (_number < 9)
-        return (_number + 2) + "\u2663";
+        return (_number + 2) + "C";
       else if (_number == 9)
-        return "J" + "\u2663";
+        return "J" + "C";
       else if (_number == 10)
-        return "Q" + "\u2663";
+        return "Q" + "C";
       else if (_number == 11)
-        return "K" + "\u2663";
+        return "K" + "C";
       else
-        return "A" + "\u2663";
+        return "A" + "C";
     }
   }
 }
