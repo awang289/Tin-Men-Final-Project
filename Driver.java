@@ -155,6 +155,7 @@ public class Driver{
     }
 
     public static Card playTurn( Player m ) {
+    	for (int x = 0; x< 800000000; x++){}/// wanted to find a way to have each turn take a little longer, this is all i could think of
 	if (m.getLeading() == true){
 	    for (int x = 0; x < players.size(); x++){
 		players.get(x).emptyTable();
