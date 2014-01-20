@@ -61,8 +61,7 @@ public class Human extends Player{
     }
     
     System.out.println(isOkay(h,j));
-    Card retCard = _hand.get(h-1);
-    _hand.remove(h-1);
+    Card retCard = _hand.remove(h-1);
     System.out.println(_name + "played " + retCard.toString() + ".");
     return retCard;
   }
