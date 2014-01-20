@@ -21,10 +21,22 @@ public class Human extends Player{
     isBroken = false;
   }
   
-  public String isOkay(int h, boolean anyOfSuit){
+  public int convert(String w){
+    for (int x = 0 ; x < _hand.size() ; x++){
+      if (_hand.get(x).toString().equals(w)){
+        return x
+      }
+    }
     
-    if (h < 1 || h > _hand.size()){return "Illegal move. Please select a card in your hand.";}
-    Card d = _hand.get(h-1);
+    return -1;
+  }
+  
+  public String isOkay(String e, boolean anyOfSuit){
+    
+    int h = convert(e);
+    
+    if (h < 0 || h > _hand.size()-1){return "Illegal move. Please select a card in your hand.";}
+    Card d = _hand.get(h);
     
     String retStr = "";
     
@@ -51,17 +63,18 @@ public class Human extends Player{
     
     showHand();
     //include catchException in case doubles/floats/non-numbers are inputted
-    System.out.println("It's your turn, please select a card using an integer from 1 to " + _hand.size()+ ".");
-    int h = Keyboard.readInt();
+    System.out.println("It's your turn, please select a card.");
+    String h = Keyboard.readString();
+    
     boolean j = checkSuit();
     
     while (isOkay(h,j)!= ""){
       System.out.println(isOkay(h,j));
-      h = Keyboard.readInt();
+      h = Keyboard.readString();
     }
     
     System.out.println(isOkay(h,j));
-    Card retCard = _hand.remove(h-1);
+    Card retCard = _hand.remove(h-1);//edit because h is a string now
     System.out.println(_name + "played the " + retCard.getNumber()+ " of " + retCard.getSuitName()  + "s.");
     return retCard;
   }
