@@ -116,26 +116,26 @@ public class Driver{
                 //redo this later, use no inputs and a for loop referencing the ArrayList players
                 Card max = c1;
                 if (c2.getSuit() == trickSuit && c2.compareTo(c1) > 0)
-                        max = c2;
+		    max = c2;
                 if (c3.getSuit() == trickSuit && c3.compareTo(c1) > 0)
-                        max = c3;
+		    max = c3;
                 if (c4.getSuit() == trickSuit && c4.compareTo(c1) > 0)
-                        max = c4;
+		    max = c4;
                 int total = c1.getValue() + c2.getValue() + c3.getValue() + c4.getValue();
                 if (max.equals(c1))
-                        {players.get(leading).addPoints(total);}
+		    {players.get(leading).addPoints(total);}
                 else if (max.equals(c2)) {
-                        players.get( (leading + 1) % 4).addPoints(total);
-                        setLeading((leading + 1) % 4);}
+		    players.get( (leading + 1) % 4).addPoints(total);
+		    setLeading((leading + 1) % 4);}
                 else if (max.equals(c3)) {
-                         players.get( (leading + 2) % 4).addPoints(total);
-			 setLeading((leading + 2) % 4);}
+		    players.get( (leading + 2) % 4).addPoints(total);
+		    setLeading((leading + 2) % 4);}
                 else {
 		    players.get( (leading + 3) % 4).addPoints(total);
-		    setLeading((leading + 1) % 4); }
+		    setLeading((leading + 3) % 4); }
                 if (total > 0) {
-                        for (int x = 0; x < 4; x++)
-                                players.get(x).setBroken(true);
+		    for (int x = 0; x < 4; x++)
+			players.get(x).setBroken(true);
                 }
         }
 
@@ -198,9 +198,10 @@ public class Driver{
                         //add all cards in onTable back to deck, remove from onTable
                         //reevaluate anyLosers
                         startRound();
-			System.out.println("" + players.get(leading).getName() 
-					   + " is leading this round.");
                         for (int x = 0; x < 13; x++) {
+			    System.out.println("" + players.get(leading).getName() 
+					   + " is leading this round.");
+
                                 c1 = playTurn( (Player) players.get( leading ));
                                 setTrick(c1);
                                 c2 = playTurn((Player)players.get( (leading + 1) % 4));
