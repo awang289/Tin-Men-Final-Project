@@ -62,7 +62,7 @@ public class Human extends Player{
     
     System.out.println(isOkay(h,j));
     Card retCard = _hand.remove(h-1);
-    System.out.println(_name + "played " + retCard.toString() + ".");
+    System.out.println(_name + "played the " + retCard.getNumber()+ " of " + retCard.getSuitName()  + "s.");
     return retCard;
   }
   
