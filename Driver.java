@@ -175,7 +175,7 @@ public class Driver{
 	System.out.println(mom);
 	int s;
 	Card c1, c2, c3, c4;
-	System.out.print("What is your name?");
+	System.out.print("What is your name? ");
 	String j = Keyboard.readString();
 	Player p1 = new Human(j);
 	Player p2 = new Computer("West");
