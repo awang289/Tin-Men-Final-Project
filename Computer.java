@@ -30,13 +30,22 @@ public class Computer extends Player{
     			toUse.remove(x);
     			x--;
     		}
-    		if (toUse.get(x).getSuit()!= getTrick() && anyOfSuit == true && isLeading == false){
+    		if (toUse.get(x).getSuit()!= _trickSuit && anyOfSuit == true && isLeading == false){
     			toUse.remove(x);
     			x--;
     		}
     	}
     	
     	return toUse;
+  }
+  
+  public boolean checkSuit(){
+  	for (int x = 0 ; x < _hand.size() ; x++){
+  		if (_hand.get(x).getSuit() == _trickSuit){
+  			return true;
+  		}
+  	}
+  	return false;
   }
   
 	
