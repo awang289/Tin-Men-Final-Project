@@ -1,3 +1,11 @@
+/*
+
+
+IMPORTANT NOTE: I'm checking this out now, but sometimes the last person to play a card always wins no matter what
+//not sure where the winner is determined but if this note is still up by the time you get back check it out
+
+
+*/ 
 import cs1.Keyboard;
 import java.util.ArrayList;
 
@@ -114,11 +122,11 @@ public class Driver{
     public static void tallyTrick(Card c1, Card c2, Card c3, Card c4) {
 	//redo this later, use no inputs and a for loop referencing the ArrayList players
 	Card max = c1;
-	if (c2.getSuit() == trickSuit && c2.compareTo(c1) > 0)
+	if (c2.getSuit() == trickSuit && c2.compareTo(max) > 0)
 	    max = c2;
-	if (c3.getSuit() == trickSuit && c3.compareTo(c1) > 0)
+	if (c3.getSuit() == trickSuit && c3.compareTo(max) > 0)
 	    max = c3;
-	if (c4.getSuit() == trickSuit && c4.compareTo(c1) > 0)
+	if (c4.getSuit() == trickSuit && c4.compareTo(max) > 0)
 	    max = c4;
 	int total = c1.getValue() + c2.getValue() + c3.getValue() + c4.getValue();
 	if (max.equals(c1))
