@@ -69,7 +69,7 @@ public class Computer extends Player{
     }
     
     _hand.remove(y); 
-    System.out.println("" + _name + " played " + y);
+    System.out.println(_name + "played the " + y.getNumber()+ " of " + y.getSuitName()  + "s.");
     return y;
   }
   
