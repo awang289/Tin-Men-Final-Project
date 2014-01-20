@@ -54,27 +54,22 @@ public class Computer extends Player{
     //at this point we have an arraylist n of all legal cards
     //we also have _table, which contains all cards currently in play
     // as well as _difficulty, which runs 1-3 and dictates increasing difficulty level
-    
+    Card y;
     if (_difficulty == 1){
-    	Card f = easyPlay(n);
-    	_hand.remove(f);
-    	return f;
+    	y = easyPlay(n);
     }
     
-    if (_difficulty == 2){
-    	Card e = midPlay(n);
-    	_hand.remove(e);
-    	return e;
+    else if (_difficulty == 2){
+    	y = midPlay(n);
+
     }
     
-    if (_difficulty == 3){
-    	Card t = hardPlay(n);
-    	_hand.remove(t);
-    	return t;
+    else {
+    	y = hardPlay(n);
     }
     
-    Card y = easyPlay(n);
-    _hand.remove(y);
+    _hand.remove(y); 
+    System.out.println("" + _name + " played " + y);
     return y;
   }
   
