@@ -38,7 +38,7 @@ public abstract class Player {
   
   public void emptyTable(){
     for (int x = 0; x < _table.size()  ; x++){
-      table.remove(x);
+      _table.remove(x);
       x--;
     }
   }
