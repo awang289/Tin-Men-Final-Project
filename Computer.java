@@ -25,7 +25,7 @@ public class Computer extends Player{
   public ArrayList<Card> reduce(){
       	ArrayList<Card> toUse = _hand;
     	boolean anyOfSuit = checkSuit(); 
-    	for (int x =  toUse.size(); x > 0; x--){
+    	for (int x =  toUse.size() - 1; x >= 0; x--){
     		if (isLeading == true && isBroken == false && toUse.get(x).getSuit() == 0){
     			toUse.remove(x);
 
