@@ -19,10 +19,10 @@ Clubs is 3
       _value = 13;
     else
       _value = 0;
-    if (_suit == 0){_name = "Hearts";}
-    else if (_suit == 1){_name = "Spades";}
-    else if (_suit == 2){_name = "Diamonds";}
-    else {_name = "Clubs";}
+    if (_suit == 0){_name = "Heart";}
+    else if (_suit == 1){_name = "Spade";}
+    else if (_suit == 2){_name = "Diamond";}
+    else {_name = "Club";}
   }
   public int getSuit() { return _suit; }
   public int getNumber() { return _number; }
