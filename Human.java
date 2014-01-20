@@ -60,9 +60,9 @@ public class Human extends Player{
       h = Keyboard.readInt();
     }
     
-    System.out.println(isOkay(h));
+    System.out.println(isOkay(h,j));
     Card retCard = _hand.get(h-1);
-    System.out.println(_name + "played " + retCard.toString() + ".")
+    System.out.println(_name + "played " + retCard.toString() + ".");
     return retCard;
   }
   
