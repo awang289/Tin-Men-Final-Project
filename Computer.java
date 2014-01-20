@@ -56,7 +56,7 @@ public class Computer extends Player{
     	return hardPlay(n);
     }
     
-    return easyPlay();
+    return easyPlay(n);
   }
   
   public boolean anyHearts(){
@@ -66,6 +66,24 @@ public class Computer extends Player{
   		}
   	}
   	return false;
+  }
+  
+  public int handSuit(int n, ArrayList<Card> g){
+  	for (int x = g.size() -1; x < 0; x--){
+  		if (g.get(x).getSuit() == n){
+  			return x;
+  		}
+  	}
+  	return -1;
+  }
+  
+  public int otherSuit(int n, ArrayList<Card> g){
+  	for (int x = g.size() -1; x < 0; x--){
+  		if (g.get(x).getSuit() != n){
+  			return x;
+  		}
+  	}
+  	return -1;
   }
   
   public Card easyPlay(ArrayList<Card> n){
@@ -102,31 +120,79 @@ public class Computer extends Player{
   	
   }
   
-  public Card hardPlay(ArrayList<Card> n){////mod/enhance this(midPlay) later to get hardPlay
-  	if (isLeading == false && _trickSuit != 0){
-  		for (int x = 0; x < n.size(); x++){
-  			if (n.get(x).getSuit() == 0){
-  				return n.get(x);
+  public Card hardPlay(ArrayList<Card> n){
+  	if (_table.size() == 3 && anyHearts() == false){
+  		if (handSuit(0,n) != -1){
+  			return n.get(handSuit(0,n));
+  		}
+  		else {
+  			return n.get(n.size()-1);
   			}
+  	}
+  	
+  	if (_table.size() == 3 && anyHearts()==true && _trickSuit == 0){
+  		if (otherSuit(0,n) != -1){
+  			return n.get(otherSuit(0,n));
+  			}
+  		else {
+  			return n.get(0);
+  		}
+  	}
+  	
+  	if (_table.size() ==3 && anyHearts()==true && _trickSuit != 0){
+  		if (otherSuit(_trickSuit,n) != -1){
+  			return n.get(otherSuit(_trickSuit,n));
+  			}
+  		else {
+  			return n.get(0); 
   		}	
   	}
   	
-  	if (isLeading == false && _trickSuit == 0){
-  		for (int x = 0; x < n.size() ; x++){
-  			if (n.get(x).getSuit() != 0){
+  	if (isLeading == true && _hand.size()> 8){
+  		//assume everyone will follow your lead
+  		if (otherSuit(0,n) != -1){
+  			return (n.get(otherSuit(0,n)));
+  		}
+  		else {
+  			return n.get(0);
+  		}
+  	}
+  	
+  	if (isLeading == true && _hand.size() <= 8){
+  		//assume someone won't, play conservatively
+  		for (int x= 0; x< n.size(); x++){
+  			if ( n.get(x).getSuit() != 0 ){
+  				return n.get(x);
+  			}
+  			return n.get(0);
+  		}
+  	}
+  	
+  	if (_trickSuit == 0 && table.size() == 1){
+  		for (int x = 0 ; x < n.size(); x++){
+  			if (n.get(x).compareTo(_table.get(0)) < 0){
   				return n.get(x);
   			}
   		}
-  		return n.get(0);
+  		
   	}
   	
-  	if (isLeading == false){
-  		return n.get((int)(n.size()));
+  	if (_trickSuit ==0 && table.size() == 2){
+  		for (int x = 0; x < n.size(); x++){
+  			if (n.get(x).compareTo(_table.get(0))|| n.get(x).compareTo(_table.get(1))){
+  				return n.get(x);
+  			}
+  		}
   	}
   	
-  	if (isLeading == true){
+  	if ( anyHearts() == false ){
+  		return n.get((int)n.size()/2);
+  	}
+  	
+  	if (anyHearts() == true){
   		return n.get(0);
   	}
+  
   }
   
 }
