@@ -29,7 +29,7 @@ public class Human extends Player{
     String retStr = "";
     
     if ( isLeading == true && isBroken == false && d.getSuit() == 0) {retStr = "Illegal move. Hearts has not yet been broken, please lead a card of another suit.";}
-    if (isLeading == false && _trickSuit != d.getSuit() && anyOfSuit == true){retStr = "Illegal move. You have a " + d.getSuitName() + ", so you must play it.";} //make getSuitName
+    if (isLeading == false && _trickSuit != d.getSuit() && anyOfSuit == true){retStr = "Illegal move. You have a " + _table.get(0).getSuitName() + ", so you must play it.";} //make getSuitName
     
     return retStr;
   }
