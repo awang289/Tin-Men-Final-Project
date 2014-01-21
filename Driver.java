@@ -16,10 +16,10 @@ public class Driver{
     public static int getTrick() { return trickSuit; }
 
     public static void printScore(){
-	String printStr = "==================================";
-	printStr = printStr +  "SCORES:";
+	String printStr = "==================================\n";
+	printStr = printStr +  "SCORES:\n";
 	for (int x = 0; x < players.size(); x++){
-	    printStr = printStr + players.get(x);
+	    printStr = printStr + players.get(x) + "\n";
 	}
 	printStr = printStr +  "==================================";
 	System.out.println(printStr);
