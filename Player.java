@@ -87,7 +87,7 @@ public abstract class Player {
     return c;
   }
   public String toString() {
-    String out = "Name: " + _name + "\nScore: " + _score;
+    String out = "Name: " + _name + "\tScore: " + _score;
     return out;
   }
   public String getHand() {
