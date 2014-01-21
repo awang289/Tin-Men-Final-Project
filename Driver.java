@@ -136,7 +136,7 @@ public class Driver{
 	    for (int x = 0; x < 4; x++)
 		players.get(x).setBroken(true);
 	}
-	System.out.println("Hearts has been broken!");
+//	System.out.println("Hearts has been broken!");
     }
 
     public static void tallyRound(){
