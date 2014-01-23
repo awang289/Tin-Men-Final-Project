@@ -78,10 +78,21 @@ public abstract class Player {
   public Card remove(int index) {
     return _hand.remove(index);
   }
+  
   public void tally() {
     _score += _roundScore;
     _roundScore = 0;
   }
+  
+  public String getTable(){
+    String d = "================================================\n||";
+    for (int x = 0; x < _table.size(); x++){
+      d += _table.get(x) + "\t";
+    }
+    d += "||\n================================================\n";
+    return d;
+  }
+  
   public Card remove(Card c) {
     _hand.remove(c);
     return c;
