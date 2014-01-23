@@ -26,7 +26,7 @@ public class Computer extends Player{
         ArrayList<Card> toUse = new ArrayList<Card>();
         for (int y = 0; y < _hand.size(); y++)
          toUse.add(_hand.get(y));
-        System.out.println("" + getHand());
+        System.out.println("Table: " + getTable());
             boolean anyOfSuit = checkSuit();
             for (int x = toUse.size() - 1; x >= 0; x--){
          if (isLeading == true){
