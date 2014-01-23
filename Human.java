@@ -61,9 +61,9 @@ public class Human extends Player{
   
   public Card playCard(){
     
+    System.out.println("The Table: " + getTable());
+    System.out.println("It's your turn, please select a card from your hand:");
     showHand();
-    System.out.println("The Table: ");
-    System.out.println("It's your turn, please select a card from your hand:.");
     String h = Keyboard.readString();
     
     boolean j = checkSuit();
