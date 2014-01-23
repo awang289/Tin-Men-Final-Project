@@ -169,6 +169,11 @@ public class Computer extends Player{
          }        
           }
           
+        if (isLeading == true && _hand.size()==13){
+         //assume everyone will follow your lead
+         	return (n.get(0));
+          }
+          
           if (isLeading == true && _hand.size()> 8){
          //assume everyone will follow your lead
          if (otherSuit(0,n) != -1){
