@@ -26,7 +26,7 @@ public class Computer extends Player{
         ArrayList<Card> toUse = new ArrayList<Card>();
         for (int y = 0; y < _hand.size(); y++)
          toUse.add(_hand.get(y));
-        System.out.println("Table: " + getTable());
+        System.out.println("The Table: " + getTable());
             boolean anyOfSuit = checkSuit();
             for (int x = toUse.size() - 1; x >= 0; x--){
          if (isLeading == true){
@@ -119,7 +119,7 @@ public class Computer extends Player{
                 if (n.get(x).getSuit() == 0){
                  return n.get(x);
                 }
-         }        
+         }
           }
           
           if (isLeading == false && _trickSuit == 0){
@@ -132,7 +132,7 @@ public class Computer extends Player{
           }
           
           if (isLeading == false){
-         return n.get((int)(n.size()));
+         return n.get((int)(n.size()-1));
           }
           
         return n.get(0);
@@ -142,7 +142,7 @@ public class Computer extends Player{
     }
   
     public Card hardPlay(ArrayList<Card> n){
-          if (_table.size() == 3 && anyHearts() == false){
+        if (_table.size() == 3 && anyHearts() == false){
          if (handSuit(0,n) != -1){
                 return n.get(handSuit(0,n));
          }
@@ -166,12 +166,12 @@ public class Computer extends Player{
          }
          else {
                 return n.get(0);
-         }        
+         }
           }
           
         if (isLeading == true && _hand.size()==13){
          //assume everyone will follow your lead
-         	return (n.get(0));
+                 return (n.get(0));
           }
           
           if (isLeading == true && _hand.size()> 8){
