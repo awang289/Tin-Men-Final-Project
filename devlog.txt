@@ -1,0 +1,58 @@
+DEVLOG
+Andreas Wang, Kyle Oleksiuk 
+The Tin Men
+
+1/13/14
+We worked in paired programming this day. We first decided the classes we would need to make (Player, Driver, Human, Computer, Card). We debating making a class Table but decided against it. We decided the order of the classes to be constructed: Player, Card, Driver, Human, Computer. We started working on Player.
+
+1/14/14
+We worked in paired programming this day. We completed the Player class, which did not require much work as most methods were abstract. We started the Card class, which would represent the 52 cards of the deck.
+
+1/15/14
+We worked in paired programming this day. The Card class was completed. The Driver class was created. We debated instantiating Driver so that the Players could access its variables, but decided to just make static methods to set the Player variables. 
+
+1/16/14
+We worked in paired programming this day. We completed the parts of Driver that would start a new game, deal the cards, and find the leader of the first trick. We also created the methods that would set the Player variables and altered the Player class as necessary to fit the Driver methods.
+
+1/17/14
+We set up the method signatures for the methods that would run the game to completion. After that, we did some major debugging and made sure all our files compiled properly and everything worked the way we wanted it to. 
+At night: Andreas worked on the Driver file and configured Driver variables to accept Card inputs from the Players. Andreas also configured Driver to tally the score after each round. Kyle was watching the Crucible. 
+
+1/18/14
+Andreas finished the Driver file by implementing methods to determine which Player would lead the next trick, whether Hearts has been broken yet, and accounted for the "Shooting the Moon" case.
+Kyle created and implemented the Human class, which would prompt the human player to play a card from the hand. The class would read the input and play the card if it corresponds to a card in the hand. If not, it would prompt the user for another input.
+
+1/19/14
+Kyle added restrictions for the Human class to comply with the rules of Hearts (if Hearts has not been broken yet, Hearts cannot be played, etc). Kyle also began the Computer class by creating a function creating a list of all legal moves for the Computer to potentially select. He also started the Computer algorithms.
+Andreas was watching football. 
+
+1/20/14
+Today was an epic day of the troubleshooting variety. While Kyle was finishing the easy/medium/hard Computer algorithms, Andreas began reading on how to implement Swing but soon realized that we did not have nearly enough time for this. Andreas instead started troubleshooting, working mainly in the Driver and Player files. After Kyle finished his Computer class, Andreas troubleshot that as well, working out snarks in the legal moves function. Kyle troubleshot the Human class and the Driver class as well and added text in the driver so that the player could see what cards had already been played.
+
+1/21/14
+We started playing through the game and made minor edits to make the game more user-friendly.
+
+1/22/14
+'Twas a blizzard. We kept testing the game but made no edits.
+
+1/23/14
+We made additional minor cosmetic edits and slightly altered the Computer's algorithms to make it less stupid. 
+
+
+Obstacles Overcome:
+We ran into issues making the players access the game variables (whether hearts had been broken, the trick leader, etc), since Driver never gets instantiated. To remedy this, we finally just made a method to set all four Players' variables and the Driver static variable simultaneously. 
+We also had difficulty with the reduce() method in Computer, which makes an ArrayList of all legal moves, because of aliasing. It took us an embarrassingly long time to realize our problem...
+The Queen of Spades was difficult to account for, since it was the only card of its suit to have a point value. We got around it by doing casework for the Computer algorithms.
+
+Unresolved Issues:
+We do not have a GUI for our game, although we managed to make the text based version as comfortable looking as possible. If we had more time, that would definitely be our first edit. Also, some versions of Hearts have an option to anonymously pass three cards before gameplay, which we also did not code because of time restriction.
+
+Cool Stuff Learned:
+Conceptual: We did learn how to run a basic GUI from Swing, although we were not able to incorporate it.
+Practical: Two lone wolves learn how to work together! We learned how to split a project so that we could (for the most part) work simultaneously without running into each other. We also learned how to discuss differing opinions civilly. Finally, we learned that when it is time to troubleshoot, it is much easier to troubleshoot someone else's code than your own, making partners very helpful. And we learned the benefits of paired programming!
+
+Mid-Development Design Changes:
+We decided not to attempt a GUI implementation because we ran out of time. Instead, we worked only on representing cards by text, which ended up looking pretty good! Also, we had to alter our originally streamlined algorithm to account for a bunch of casework.
+
+Lessons Learned:
+We probably should have used an interface. We ended up editing Driver methods to account for Player variables and vice versa. Communication is very important! Also, making a GUI is much easier when it is begun from the beginning instead of spliced in at the middle. Finally, the product is useless is the consumer cannot understand how to use it.
