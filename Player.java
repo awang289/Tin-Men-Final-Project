@@ -85,7 +85,7 @@ public abstract class Player {
   }
   
   public String getTable(){
-    String d = "\n======================================\n||";
+    String d = "\n======================================\n\t";
     for (int x = 0; x < _table.size(); x++){
       d += _table.get(x) + "\t";
     }
